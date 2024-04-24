@@ -1,0 +1,45 @@
+.App-header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.form-center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+}
+
+.form-center-bigger {
+    align-items: center;
+    margin-left: 25%;
+    width: 50%
+}
+
+.space-left {
+    margin-left: 50px;
+}
+
+.post-center {
+    text-align: center;
+    margin-top: 50px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.muted-grey {
+    color: grey;
+    font-size: x-small;
+}
+
+.card-center {
+    text-align: center;
+    margin-left:25%;
+    margin-top: 50px;
+    height: 250px;
+    width: 50%;
+}

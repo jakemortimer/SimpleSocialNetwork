@@ -1,0 +1,48 @@
+version: '3.13'
+
+services:
+  db:
+    image: postgres:16.2
+    ports:
+      - '5432:5432'
+    
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    
+    volumes:
+      - ./data/db:/var/lib/postgresql/data/
+
+  frontend:
+    build: 
+      context: ./loginfe
+      dockerfile: Dockerfile
+
+    ports:
+      - '3000:3000'
+    
+    volumes:
+      - ./loginfe:/app/loginfe
+
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./login/login/
+      dockerfile: Dockerfile
+
+    environment:
+    - POSTGRES_PASSWORD=postgres
+    - POSTGRES_USER=postgres
+    - POSTGRES_DB=postgres
+
+    ports:
+      - '8000:8000'
+
+    volumes:
+      - ./login/login/:/app/login
+
+    depends_on:
+      - db
